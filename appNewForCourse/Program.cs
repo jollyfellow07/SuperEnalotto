@@ -66,8 +66,29 @@ foreach (int[] num in Biglietti) {
         }
     }
 
-    if (numeriInComune > 4)
+    if (numeriInComune > 1)
     {
-        Console.WriteLine("\nComplimenti!!!!!!!\n Il biglietto \n" + string.Join(", ", num) + " ha " + numeriInComune + " numeri in comune.\n Estrazione SUPERENALOTTO: \n" + string.Join(", ", array));
+        Console.WriteLine("\nComplimenti!!!!!!!\n Il biglietto \n" + string.Join(", ", num) + " ha " + numeriInComune +
+                          " numeri in comune.\n Estrazione SUPERENALOTTO: \n" + string.Join(", ", array));
+
+
+        switch (numeriInComune)
+        {
+            case (2):
+                Console.WriteLine("\nComplimenti hai fatto un ambo");
+                break;
+            case (3):
+                Console.WriteLine("\nComplimenti hai fatto un terno");
+                break;
+            case (4):
+                Console.WriteLine("\nComplimenti hai fatto una quaterna");
+                break;
+            case (5):
+                Console.WriteLine("\nComplimenti hai fatto una quintina");
+                break;
+            case (6):
+                Console.WriteLine("\n\n\n\n\n\n\nCOMPLIMENTI HAI VINTO IL LOTTO! CHE FORTUNA\n\n\n\n\n");
+                break;
+        }
     }
 }
