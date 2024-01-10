@@ -7,7 +7,7 @@ public class Superenalotto
         return new Superenalotto();
     }
    
-    public static int [] GetCombinazioneSuperEnalotto()
+    public int [] GetCombinazioneSuperEnalotto()
     {
        int [] array = new int [6];
        Random random = new Random(); //questa variabile ci serve per andare a prendere il tipo random.
@@ -28,7 +28,7 @@ public class Superenalotto
         return array;
     }
 
-    public static int GetNumeroBiglietti()
+    public int GetNumeroBiglietti()
     {
         //chiedo all'utente quanti biglietti desidera acquistare
         int numeroBiglietti = 0;
@@ -50,7 +50,7 @@ public class Superenalotto
         return numeroBiglietti;
     }
 
-    public static List<int[]> StampaBiglietti(int numeroBiglietti)
+    public List<int[]> StampaBiglietti(int numeroBiglietti)
     {
         List<int[]> Biglietti = new List<int[]>();
         Random random = new Random(); //questa variabile ci serve per andare a prendere il tipo random.
@@ -72,7 +72,7 @@ public class Superenalotto
         return Biglietti;
     }
 
-    public static void GetEstrazione(List<int[]> Biglietti, int[] array)
+    public void GetEstrazione(List<int[]> Biglietti, int[] array)
     {
         //vado a creare un foreach che scansiona il mio array di biglietti, poi con un altro ciclo vado a vedere quanti numeri il mio biglietto
 //ha in comune con l'estrazione del superenalotto.
@@ -117,13 +117,13 @@ public class Superenalotto
             }
         }
     }
-public static void StampaCombinazioneSuperEnalotto(int[] array)
-{
-    Console.WriteLine("\n\nLa combinazione fortunata estratta oggi è: \n");
-    foreach (var arrays in array)
+    public void StampaCombinazioneSuperEnalotto(int[] array)
     {
-        Console.Write($"\t {arrays}");
+        Console.WriteLine("\n\nLa combinazione fortunata estratta oggi è: \n");
+        foreach (var arrays in array)
+        {
+            Console.Write($"\t {arrays}");
+        }
     }
-}
     
 }
