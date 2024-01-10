@@ -17,3 +17,4 @@ Biglietti = Giocata.StampaBiglietti(numeroBiglietti);
 Giocata.StampaCombinazioneSuperEnalotto(array);
 //stampo e verifico l'estrazione di oggi 
 Giocata.GetEstrazione(Biglietti, array);
+
