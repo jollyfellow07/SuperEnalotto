@@ -1,94 +1,18 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("In questo codice proveremo a iterare un array con valori int random");
-//dichiaro le variabili array e random
-int [] array = new int [6];
+using appNewForCourse;
+using static appNewForCourse.Superenalotto;
 
 Random random = new Random(); //questa variabile ci serve per andare a prendere il tipo random.
-
-for (int i = 0; i < array.Length; i++)
-{
-    int number = random.Next(1, 90);
-
-    while (array.Contains(number))//gestisco duplicati
-    {
-        number = random.Next(1, 90);
-    }
-
-    array[i] = number;
-    
-}
+Console.WriteLine("In questo codice proveremo a iterare un array con valori int random");
+//dichiaro le variabili array e random
+int[] array = Superenalotto.GetCombinazioneSuperEnalotto();
 
 //inizio creando le liste 
 List<int[]> Biglietti = new List<int[]>();
+//mi genero il numero di biglietti che desidero acquistare
+int numeroBiglietti = Superenalotto.GetNumeroBiglietti();
+//pmi stampo e salvo tutti i biglietti che ho comprato
+Biglietti = Superenalotto.StampaBiglietti(numeroBiglietti);
 
-//chiedo all'utente quanti biglietti desidera acquistare
-int numeroBiglietti = 0;
-bool success = false;
-Console.WriteLine("Inserisci il numero di biglietti che vuoi:");
-while (!success)
-{ 
-    try
-    {
-        numeroBiglietti = Convert.ToInt32(Console.ReadLine());
-        success = true;
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine(e + "\n\nMi dispiace numero non valido, inserisci un nuovo valore: ");
-    }
-}
-
-
-//creo i miei biglietti
-for (int i = 0; i < numeroBiglietti; i++)
-{
-    Biglietti.Add(new int[6]{random.Next(1, 90),random.Next(1, 90),random.Next(1, 90),random.Next(1, 90),random.Next(1, 90),random.Next(1, 90) });
-}
-//una volta creati i biglietti li vado a stampare
-foreach (var controllo in Biglietti)
-{
-    Console.WriteLine("\ncombinazione: ");
-    for (int i = 0; i < 6; i++)
-    {
-        Console.Write($"\t {controllo[i]}");
-    }
-}
-//vado a creare un foreach che scansiona il mio array di biglietti, poi con un altro ciclo vado a vedere quanti numeri il mio biglietto
-//ha in comune con l'estrazione del superenalotto.
-foreach (int[] num in Biglietti) {
-    int numeriInComune = 0;
-    foreach (int numero in num) {
-        foreach (int numeroPrincipale in array) {
-            if (numero == numeroPrincipale) {
-                numeriInComune++;
-            }
-        }
-    }
-
-    if (numeriInComune > 1)
-    {
-        Console.WriteLine("\nComplimenti!!!!!!!\n Il biglietto \n" + string.Join(", ", num) + " ha " + numeriInComune +
-                          " numeri in comune.\n Estrazione SUPERENALOTTO: \n" + string.Join(", ", array));
-
-
-        switch (numeriInComune)
-        {
-            case (2):
-                Console.WriteLine("\nComplimenti hai fatto un ambo");
-                break;
-            case (3):
-                Console.WriteLine("\nComplimenti hai fatto un terno");
-                break;
-            case (4):
-                Console.WriteLine("\nComplimenti hai fatto una quaterna");
-                break;
-            case (5):
-                Console.WriteLine("\nComplimenti hai fatto una quintina");
-                break;
-            case (6):
-                Console.WriteLine("\n\n\n\n\n\n\nCOMPLIMENTI HAI VINTO IL LOTTO! CHE FORTUNA\n\n\n\n\n");
-                break;
-        }
-    }
-}
+Superenalotto.GetEstrazione(Biglietti, array);
