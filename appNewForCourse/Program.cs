@@ -14,5 +14,6 @@ List<int[]> Biglietti = new List<int[]>();
 int numeroBiglietti = Superenalotto.GetNumeroBiglietti();
 //pmi stampo e salvo tutti i biglietti che ho comprato
 Biglietti = Superenalotto.StampaBiglietti(numeroBiglietti);
-
+Superenalotto.StampaCombinazioneSuperEnalotto(array);
+//stampo e verifico l'estrazione di oggi 
 Superenalotto.GetEstrazione(Biglietti, array);

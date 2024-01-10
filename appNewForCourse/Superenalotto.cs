@@ -92,7 +92,7 @@ public class Superenalotto
 
             if (numeriInComune > 1)
             {
-                Console.WriteLine("\nComplimenti!!!!!!!\n Il biglietto \n" + string.Join(", ", num) + " ha " + numeriInComune +
+                Console.WriteLine("\n Il tuo biglietto \n" + string.Join(", ", num) + " ha " + numeriInComune +
                                   " numeri in comune.\n Estrazione SUPERENALOTTO: \n" + string.Join(", ", array));
 
 
@@ -117,5 +117,13 @@ public class Superenalotto
             }
         }
     }
+public static void StampaCombinazioneSuperEnalotto(int[] array)
+{
+    Console.WriteLine("\n\nLa combinazione fortunata estratta oggi è: \n");
+    foreach (var arrays in array)
+    {
+        Console.Write($"\t {arrays}");
+    }
+}
     
 }
